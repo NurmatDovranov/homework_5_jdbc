@@ -1,5 +1,6 @@
 package org.peaksoft.service;
 
+import org.peaksoft.dao.UserDao;
 import org.peaksoft.dao.UserDaoJdbcImpl;
 import org.peaksoft.model.User;
 
@@ -7,29 +8,29 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    UserDaoJdbcImpl userDaoJdbc = new UserDaoJdbcImpl();
+    UserDao userDao = new UserDaoJdbcImpl();
 
     public void createUsersTable() {
-        userDaoJdbc.createUsersTable();
+        userDao.createUsersTable();
     }
 
     public void dropUsersTable() {
-        userDaoJdbc.dropUsersTable();
+        userDao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        userDaoJdbc.saveUser(name, lastName, age);
+        userDao.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-        userDaoJdbc.removeUserById(id);
+        userDao.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return userDaoJdbc.getAllUsers();
+        return userDao.getAllUsers();
     }
 
     public void cleanUsersTable() {
-        userDaoJdbc.cleanUsersTable();
+        userDao.cleanUsersTable();
     }
 }
