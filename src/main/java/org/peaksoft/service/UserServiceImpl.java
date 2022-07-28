@@ -1,6 +1,7 @@
 package org.peaksoft.service;
 
 import org.peaksoft.dao.UserDao;
+import org.peaksoft.dao.UserDaoHibernateImpl;
 import org.peaksoft.dao.UserDaoJdbcImpl;
 import org.peaksoft.model.User;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    UserDao userDao = new UserDaoJdbcImpl();
+    UserDao userDao = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
         userDao.createUsersTable();
